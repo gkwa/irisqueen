@@ -49,7 +49,7 @@ func createSSHConfigFile(configFilePath string) error {
 	_, err = os.Stat(sshConfigPath)
 	if os.IsNotExist(err) {
 		// Create the ~/.ssh directory if it doesn't exist
-		err = os.MkdirAll(filepath.Dir(sshConfigPath), 0700)
+		err = os.MkdirAll(filepath.Dir(sshConfigPath), 0o700)
 		if err != nil {
 			return err
 		}
@@ -63,7 +63,7 @@ func createSSHConfigFile(configFilePath string) error {
 	}
 
 	// Append the absolute path of the new config file to the end of ~/.ssh/config
-	file, err := os.OpenFile(sshConfigPath, os.O_RDWR|os.O_APPEND, 0600)
+	file, err := os.OpenFile(sshConfigPath, os.O_RDWR|os.O_APPEND, 0o600)
 	if err != nil {
 		return err
 	}
@@ -105,7 +105,6 @@ func checkEntryExists(file *os.File, entry string) (bool, error) {
 	}
 	return false, nil
 }
-
 
 func main() {
 	// Define the prefix, region, and PEM file path flags
@@ -256,7 +255,7 @@ Host {{.Host}}
 	}
 
 	// Write the SSH configuration to a file
-	file, err := os.OpenFile(configFileName, os.O_RDWR|os.O_CREATE|os.O_TRUNC, 0600)
+	file, err := os.OpenFile(configFileName, os.O_RDWR|os.O_CREATE|os.O_TRUNC, 0o600)
 	if err != nil {
 		fmt.Println("Failed to create SSH configuration file:", err)
 		return
@@ -283,4 +282,3 @@ Host {{.Host}}
 
 	fmt.Printf("updated %s\n", configFileName)
 }
-
