@@ -36,3 +36,11 @@ changelog:
     exclude:
     - '^docs:'
     - '^test:'
+brews:
+- name: irisqueen
+  directory: Formula
+  homepage: https://github.com/taylormonacelli/homebrew-tools
+  repository:
+    owner: taylormonacelli
+    name: homebrew-tools
+    branch: main
