@@ -36,8 +36,6 @@ archives:
     format: zip
 checksum:
   name_template: checksums.txt
-snapshot:
-  tag_name: v{{ .Version }}
 changelog:
   sort: asc
   filters:
