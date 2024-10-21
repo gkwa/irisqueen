@@ -1,3 +1,4 @@
+version: 2
 before:
   hooks:
   - go mod tidy
@@ -14,6 +15,13 @@ builds:
   - amd64
   binary: irisqueen
   id: irisqueen
+  ldflags:
+  - -s -w
+    -X "github.com/gkwa/irisqueen/version.Version={{ .Version }}"
+    -X "github.com/gkwa/irisqueen/version.Date={{ .CommitDate }}"
+    -X "github.com/gkwa/irisqueen/version.GoVersion={{ .Env.GOVERSION }}"
+    -X "github.com/gkwa/irisqueen/version.ShortGitSHA={{ .ShortCommit }}"
+    -X "github.com/gkwa/irisqueen/version.FullGitSHA={{ .FullCommit }}"
 archives:
 - format: tar.gz
   name_template: |-
@@ -39,8 +47,17 @@ changelog:
 brews:
 - name: irisqueen
   directory: Formula
-  homepage: https://github.com/taylormonacelli/homebrew-tools
+  homepage: https://github.com/gkwa/irisqueen
   repository:
-    owner: taylormonacelli
+    owner: gkwa
     name: homebrew-tools
     branch: main
+scoops:
+- name: irisqueen
+  homepage: https://github.com/gkwa/irisqueen
+  description: "Description of the irisqueen project"
+  license: MIT
+  repository:
+    owner: gkwa
+    name: scoop-bucket
+    branch: master
