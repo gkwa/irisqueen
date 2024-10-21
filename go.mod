@@ -2,11 +2,9 @@ module github.com/taylormonacelli/irisqueen
 
 go 1.21
 
-toolchain go1.23.2
-
 require (
 	github.com/aws/aws-sdk-go-v2/config v1.28.0
-	github.com/aws/aws-sdk-go-v2/service/ec2 v1.184.0
+	github.com/aws/aws-sdk-go-v2/service/ec2 v1.183.0
 )
 
 require (
@@ -22,5 +20,4 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/ssooidc v1.28.2 // indirect
 	github.com/aws/aws-sdk-go-v2/service/sts v1.32.2 // indirect
 	github.com/aws/smithy-go v1.22.0 // indirect
-	github.com/jmespath/go-jmespath v0.4.0 // indirect
 )
