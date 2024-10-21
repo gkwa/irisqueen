@@ -6,7 +6,7 @@ toolchain go1.23.2
 
 require (
 	github.com/aws/aws-sdk-go-v2/config v1.28.0
-	github.com/aws/aws-sdk-go-v2/service/ec2 v1.183.0
+	github.com/aws/aws-sdk-go-v2/service/ec2 v1.184.0
 )
 
 require (
